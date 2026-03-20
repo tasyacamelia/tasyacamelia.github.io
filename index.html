@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dracin Hub - Nonton Drama China</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --accent-color: #FFD700; 
+            --dark-bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --primary-gradient: linear-gradient(45deg, #0d6efd, #004085);
+            --hover-gradient: linear-gradient(45deg, #FFD700, #FFA500);
+        }
+
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* NAVBAR STYLING */
+        .navbar {
+            padding: 15px 0;
+            transition: 0.4s;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin-left: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        /* HERO SECTION */
+        .hero-video-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        /* TOMBOL UTAMA */
+        .btn-custom {
+            background-color: #8B0000;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 35px;
+            border: none;
+            font-weight: bold;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-custom:hover {
+            background-color: #b30000;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .btn-outline-warning:hover {
+            background-color: #FFD700 !important;
+            color: #000 !important;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* FEATURE SECTION */
+        .feature-box {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .feature-box:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* DRAMA CARD */
+        .card {
+            background: var(--card-bg);
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+        }
+
+        .card-img-top {
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .btn-detail {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 50px; 
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-detail:hover {
+            background: var(--hover-gradient);
+            color: #000 !important;
+        }
+
+        section {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="img/cdrama.jpeg" alt="Logo" width="40" height="40" class="me-2 rounded shadow">
+                <span class="fw-bold fs-3">DracinHub</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#action-section">Action</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#romance-section">Romance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="form_pendaftaran.html">Daftar</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning" href="dasboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-video-container">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="Video2.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="hero-content text-center px-3">
+            <h1 class="display-3 fw-bold mb-3">Nonton Drama China Terbaik</h1>
+            <p class="lead fs-4 mb-4">Temukan koleksi drama terlengkap dengan kualitas HD.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#action-section" class="btn btn-custom btn-lg shadow">
+                    <i class="fas fa-play me-2"></i>Mulai Nonton
+                </a>
+                <a href="form_pendaftaran.html" class="btn btn-outline-warning btn-lg rounded-pill px-4 fw-bold shadow">
+                    <i class="fas fa-crown me-2"></i>Upgrade ke Premium
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="container my-5">
+        <h2 class="text-center mb-5 fw-bold">Mengapa Memilih DracinHub?</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="feature-box h-100">
+                    <i class="fas fa-clapperboard fa-3x mb-3 text-primary"></i>
+                    <h4>Kualitas HD</h4>
+                    <p class="text-secondary small">Visual jernih untuk pengalaman nonton yang memanjakan mata.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box h-100">
+                    <i class="fas fa-bolt fa-3x mb-3 text-warning"></i>
+                    <h4>Update Cepat</h4>
+                    <p class="text-secondary small">Episode baru hadir tepat waktu, setiap hari.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box h-100">
+                    <i class="fas fa-globe fa-3x mb-3 text-info"></i>
+                    <h4>Subtitle Indo</h4>
+                    <p class="text-secondary small">Terjemahan akurat dan mudah dipahami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container my-5">
+        <section id="action-section">
+            <h2 class="mb-4 border-start border-4 border-warning ps-3">Drama Action & Fantasy</h2>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="img/dracin1.jpg" class="card-img-top" alt="Drama">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">Love Between Fairy And Devil</h6>
+                            <p class="card-text small text-secondary">Kisah cinta terlarang antara peri rendah hati dan Raja Iblis yang kejam.</p>
+                            <a href="#" class="btn-detail"><i class="fas fa-play-circle"></i> Tonton Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="img/dracin2.jpg" class="card-img-top" alt="Drama">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">Fangs of Fortune</h6>
+                            <p class="card-text small text-secondary">Sekelompok pemburu iblis yang mengungkap misteri kuno yang berbahaya.</p>
+                            <a href="#" class="btn-detail"><i class="fas fa-play-circle"></i> Tonton Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="img/dracin3.jpg" class="card-img-top" alt="Drama">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">The Last Immortal</h6>
+                            <p class="card-text small text-secondary">Perjalanan mencari fragmen jiwa dewa untuk menyelamatkan kerajaan langit.</p>
+                            <a href="#" class="btn-detail"><i class="fas fa-play-circle"></i> Tonton Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="img/dracin4.jpg" class="card-img-top" alt="Drama">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">The Journey Of Legend</h6>
+                            <p class="card-text small text-secondary">Kisah seorang pendekar muda dalam menaklukkan dunia bela diri.</p>
+                            <a href="#" class="btn-detail"><i class="fas fa-play-circle"></i> Tonton Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="romance-section" class="mt-5">
+            <h2 class="mb-4 border-start border-4 border-danger ps-3">Drama Romance</h2>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="img/dracin5.jpg" class="card-img-top" alt="Drama">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">Wonderland of Love</h6>
+                            <p class="card-text small text-secondary">Pertemuan dua jenderal cerdas di tengah kekacauan perebutan takhta.</p>
+                            <a href="#" class="btn-detail"><i class="fas fa-play-circle"></i> Tonton Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="img/dracin6.jpg" class="card-img-top" alt="Drama">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">Who Rules The World</h6>
+                            <p class="card-text small text-secondary">Persaingan dan cinta antara dua pendekar terhebat di dunia.</p>
+                            <a href="#" class="btn-detail"><i class="fas fa-play-circle"></i> Tonton Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="img/dracin7.jpg" class="card-img-top" alt="Drama">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">Immortal Samsara</h6>
+                            <p class="card-text small text-secondary">Kisah cinta tragis yang bertahan melintasi banyak masa kehidupan.</p>
+                            <a href="#" class="btn-detail"><i class="fas fa-play-circle"></i> Tonton Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="img/dracin8.jpg" class="card-img-top" alt="Drama">
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold">The Untamed</h6>
+                            <p class="card-text small text-secondary">Dua sahabat mengungkap konspirasi gelap di dunia kultivator.</p>
+                            <a href="#" class="btn-detail"><i class="fas fa-play-circle"></i> Tonton Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-5 mt-5 border-top border-secondary">
+        <div class="mb-3">
+            <a href="#" class="text-secondary mx-2"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#" class="text-secondary mx-2"><i class="fab fa-tiktok fa-lg"></i></a>
+            <a href="#" class="text-secondary mx-2"><i class="fab fa-youtube fa-lg"></i></a>
+        </div>
+        <p class="text-secondary mb-0">&copy; 2026 DracinHub. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <button onclick="window.scrollTo(0, 0)" id="scrollTopBtn" class="btn btn-warning rounded-circle shadow" style="position: fixed; bottom: 20px; right: 20px; display: none; width: 50px; height: 50px; z-index: 100;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNavbar');
+            const btn = document.getElementById('scrollTopBtn');
+            
+            // Logika Navbar
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Logika Tombol Scroll Top
+            if (window.scrollY > 500) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
